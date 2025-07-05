@@ -20,13 +20,19 @@ Or you can download it from https://ollama.com/download/windows
 
 
 ### Step 2: Pull Mistral Model
+```bash
 ollama pull mistral
 ollama list  # Verify
 ollama run mistral "Hello, how are you?"  # Test
+```
+
 
 ### Step 3: Pull Mistral Model
+```bash
 git clone https://github.com/DBhardwaj21/RAG_Deepeval-.git
 cd rag-deepeval-project
+```
+
 
 ### Step 4: Create Virtual Environment and Install Dependencies
 python -m venv venv
@@ -43,8 +49,6 @@ pip install -r requirements.txt
 ```bash
 pyhton Rag_Deepeval.py
 ```
-
-
 
 
 
