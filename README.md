@@ -35,10 +35,10 @@ cd rag-deepeval-project
 
 
 ### Step 4: Create Virtual Environment and Install Dependencies
+```bash
 python -m venv venv
-
-#### Activate:
-#### Windows:
+```
+#### Activate the environment:
 ```bash
 venv\Scripts\activate
 pip install --upgrade pip
