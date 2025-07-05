@@ -1,0 +1,162 @@
+{
+  "timestamp": "2025-07-05 22:32:52",
+  "total_test_cases": 10,
+  "evaluation_type": "custom",
+  "metrics_used": [
+    "Custom Relevance",
+    "Custom Context Utilization",
+    "Custom Completeness"
+  ],
+  "test_cases": [
+    {
+      "id": 1,
+      "question": "What is the role of attention in transformer models?",
+      "expected_answer": "Attention allows transformer models to weigh the importance of different input tokens dynamically, enabling them to focus on relevant parts of the sequence.",
+      "actual_answer": " The role of attention in Transformer models is to allow the model to focus on relevant parts of the input sequence when generating an output. This is achieved by using multi-head attention layers, which enable the model to jointly attend to information from different representation subspaces at different positions. This mechanism helps the model to better capture long-range dependencies and improve the quality of the generated output compared to recurrent or convolutional neural networks.",
+      "context_chunks": 10,
+      "context_preview": "the effort to evaluate this idea. Ashish, with Illia, designed and implemented the first Transformer models and\nhas been crucially involved in every aspect of this work. Noam proposed scaled dot-produ...",
+      "scores": {
+        "relevance": 0.75,
+        "context_utilization": 0.6818181818181818,
+        "completeness": 0.85,
+        "overall": 0.7606060606060606
+      },
+      "passed": true
+    },
+    {
+      "id": 2,
+      "question": "What are the main components of the transformer architecture?",
+      "expected_answer": "The transformer architecture includes multi-head self-attention, position-wise feedforward networks, layer normalization, and residual connections.",
+      "actual_answer": " The main components of the Transformer architecture, as presented in this document, are:\n\n1. Multi-headed Self-Attention: This replaces the recurrent layers commonly used in encoder-decoder architectures. It allows the model to focus on different aspects of the input sequence simultaneously by using multiple attention heads.\n\n2. Multi-Head Attention (as a counteract for reduced effective resolution due to averaging attention-weighted positions): This mechanism helps to mitigate the issue of reduced effective resolution caused by averaging attention-weighted positions in the Transformer.\n\n3. Encoder and Decoder: The Transformer consists of an encoder and a decoder, both based entirely on attention mechanisms.\n\n4. Positional Encoding: This is used to provide the model with information about the relative or absolute position of the words in the sequence.\n\n5. Layer Normalization: This is applied before each sub-layer to ensure that the distribution of layer inputs stays centered and has unit variance.\n\n6. Residual Connections: These are used to alleviate the vanishing gradient problem, allowing information from earlier layers to effectively propagate through the network.",
+      "context_chunks": 10,
+      "context_preview": "Figure 1: The Transformer - model architecture.\nThe Transformer follows this overall architecture using stacked self-attention and point-wise, fully\nconnected layers for both the encoder and decoder, ...",
+      "scores": {
+        "relevance": 0.75,
+        "context_utilization": 0.48,
+        "completeness": 0.9,
+        "overall": 0.71
+      },
+      "passed": true
+    },
+    {
+      "id": 3,
+      "question": "How does self-attention differ from traditional attention mechanisms?",
+      "expected_answer": "Self-attention computes attention scores within a single sequence, allowing each token to attend to all others, unlike traditional attention that typically aligns inputs and outputs.",
+      "actual_answer": " Self-attention differs from traditional attention mechanisms in several ways. Traditional attention mechanisms are used in models like RNNs (Recurrent Neural Networks) or LSTMs (Long Short-Term Memory), where the attention is computed between the input and output sequences. On the other hand, self-attention computes the attention within the same sequence, allowing the model to focus on different parts of the input simultaneously.\n\nIn traditional attention mechanisms, the attention score is usually computed using a dot product between the input and key vectors, followed by a softmax function to normalize the scores. Self-attention uses a scaled dot product (often with an additional position encoding) instead of the dot product, and computes the attention scores for all pairs of input elements, resulting in a matrix that is then used to weight the input elements.\n\nSelf-attention also allows for parallel computation, as opposed to sequential computation in traditional attention mechanisms. This makes self-attention more efficient and scalable, especially for long sequences. However, it also requires more computational resources due to the increased number of pairwise comparisons.\n\nThe paper you provided discusses the Transformer model, which is based solely on self-attention mechanisms, dispensing with recurrence and convolutions. The authors argue that the Transformer can achieve state-of-the-art performance on various tasks, demonstrating its effectiveness in handling sequential data.",
+      "context_chunks": 10,
+      "context_preview": "described in section 3.2.\nSelf-attention, sometimes called intra-attention is an attention mechanism relating different positions\nof a single sequence in order to compute a representation of the seque...",
+      "scores": {
+        "relevance": 0.6666666666666666,
+        "context_utilization": 0.4491525423728814,
+        "completeness": 0.9,
+        "overall": 0.6719397363465159
+      },
+      "passed": false
+    },
+    {
+      "id": 4,
+      "question": "Why is positional encoding used in transformers?",
+      "expected_answer": "Since transformers lack recurrence, positional encoding provides information about token order, enabling the model to understand sequence structure.",
+      "actual_answer": " Positional encoding is used in Transformers to provide information about the relative or absolute position of tokens within a sequence to the model, since the Transformer architecture does not have any recurrence or convolution. This allows the model to make use of the order of the sequence and understand the context better.",
+      "context_chunks": 10,
+      "context_preview": "bottoms of the encoder and decoder stacks. The positional encodings have the same dimension dmodel\nas the embeddings, so that the two can be summed. There are many choices of positional encodings,\nlea...",
+      "scores": {
+        "relevance": 0.75,
+        "context_utilization": 0.7666666666666667,
+        "completeness": 0.7999999999999999,
+        "overall": 0.7722222222222221
+      },
+      "passed": true
+    },
+    {
+      "id": 5,
+      "question": "What is multi-head attention and why is it important?",
+      "expected_answer": "Multi-head attention allows the model to focus on different parts of the input simultaneously, capturing diverse patterns and relationships.",
+      "actual_answer": " Multi-head attention, also known as intra-attention, is an attention mechanism that relates different positions within a single sequence to compute a representation of the sequence. It has been used successfully in various tasks such as reading comprehension, abstractive summarization, textual entailment, and learning task-independent sentence representations.\n\nThe importance of multi-head attention lies in its ability to capture multiple aspects or relationships within the input data simultaneously. By allowing the model to learn different attention weights for each position in the sequence, it can better understand complex structures and long-distance dependencies. This makes it particularly useful in tasks where understanding the context is crucial, such as natural language processing tasks.\n\nIn the given text, you can see an example of multi-head attention at work in the encoder self-attention layer 5 of 6. The attention heads are attending to different positions within the sequence, completing phrases and performing different tasks. This ability to handle long-distance dependencies and complex structures is one of the key advantages of multi-head attention over other models such as [17, 18] and [9].",
+      "context_chunks": 10,
+      "context_preview": "output values. These are concatenated and once again projected, resulting in the final values, as\ndepicted in Figure 2.\nMulti-head attention allows the model to jointly attend to information from diff...",
+      "scores": {
+        "relevance": 0.75,
+        "context_utilization": 0.6082474226804123,
+        "completeness": 0.9,
+        "overall": 0.7527491408934708
+      },
+      "passed": true
+    },
+    {
+      "id": 6,
+      "question": "How are transformers trained on large datasets?",
+      "expected_answer": "Transformers are trained using large-scale parallel processing with techniques like masked language modeling or autoregressive prediction and optimized using gradient descent.",
+      "actual_answer": " Transformers are trained on large datasets using a process that involves several steps. Here's a simplified explanation based on the information provided in the documents:\n\n1. The dataset used for training is the standard WMT 2014 English-German dataset, consisting of about 4.5 million sentence pairs. For English-French, a larger dataset (WMT 2014 English-French dataset consisting of 36M sentences) is used.\n\n2. The sentences are encoded using byte-pair encoding or word-piece vocabulary, which results in a shared source-target vocabulary of about 37000 tokens for English-German and 32000 words for English-French.\n\n3. Sentence pairs are batched together by approximate sequence length. Each training batch contains a set of sentence pairs containing approximately 25000 source tokens and 25000 target tokens.\n\n4. Training is done on a machine with 8 NVIDIA P100 GPUs. For the base models, each training step takes about 0.4 seconds. The base models are trained for a total of 100,000 steps or 12 hours. For larger models (described as 'big' in the documents), step time is 1.0 seconds and they are trained for 300,000 steps (3.5 days).\n\n5. The transformer model uses learned embeddings to convert input and output tokens to vectors of dimension dmodel. It also uses a linear transformation and softmax function to convert the decoder output to predicted next-token probabilities. The same weight matrix is shared between the two embedding layers and the pre-softmax linear transformation.",
+      "context_chunks": 10,
+      "context_preview": "To evaluate if the Transformer can generalize to other tasks we performed experiments on English\nconstituency parsing. This task presents specific challenges: the output is subject to strong structura...",
+      "scores": {
+        "relevance": 0.75,
+        "context_utilization": 0.7313432835820896,
+        "completeness": 0.9,
+        "overall": 0.7937810945273632
+      },
+      "passed": true
+    },
+    {
+      "id": 7,
+      "question": "What is the difference between encoder and decoder in transformers?",
+      "expected_answer": "The encoder processes input sequences into contextual representations, while the decoder generates output sequences using encoder outputs and self-attention.",
+      "actual_answer": " The main difference between the encoder and decoder in Transformers lies in their self-attention layers and the direction of information flow. In the encoder, each position can attend to all positions in the previous layer of the encoder. This allows the model to capture long-range dependencies within the input sequence.\n\nIn contrast, the decoder also uses self-attention layers but with a twist: each position in the decoder can only attend to all positions in the decoder up to and including that position. This is done to prevent leftward information flow in the decoder, preserving the auto-regressive property where the model generates one output token at a time based on previously generated tokens.\n\nAdditionally, both the encoder and decoder contain Position-wise Feed-Forward Networks (FFN) and embeddings. The FFN consists of two linear transformations with a ReLU activation in between, while the embeddings are learnable vector representations for each input token.",
+      "context_chunks": 10,
+      "context_preview": "Figure 1: The Transformer - model architecture.\nThe Transformer follows this overall architecture using stacked self-attention and point-wise, fully\nconnected layers for both the encoder and decoder, ...",
+      "scores": {
+        "relevance": 0.8,
+        "context_utilization": 0.625,
+        "completeness": 0.9,
+        "overall": 0.775
+      },
+      "passed": true
+    },
+    {
+      "id": 8,
+      "question": "How do transformers achieve parallelization during training?",
+      "expected_answer": "Transformers enable parallelization by processing all tokens simultaneously using matrix operations, unlike RNNs that process sequentially.",
+      "actual_answer": " The provided text does not explicitly mention how Transformers achieve parallelization during training. However, it's important to note that one of the key advantages of Transformer models is their ability to perform parallel computation efficiently due to self-attention mechanisms. This allows them to process sequences of any length in a single forward pass, which is a significant improvement over recurrent neural networks (RNNs) where the sequence length is limited by memory constraints.\n\nIn addition, the text mentions that they replaced an earlier codebase with tensor2tensor, which was designed to make it easier to train and evaluate Transformer models at scale. This suggests that tensor2tensor might have been optimized for parallel computation, but again, this is not explicitly stated in the provided text.",
+      "context_chunks": 10,
+      "context_preview": "translation quality after being trained for as little as twelve hours on eight P100 GPUs.\n2 Background\nThe goal of reducing sequential computation also forms the foundation of the Extended Neural GPU\n...",
+      "scores": {
+        "relevance": 0.8,
+        "context_utilization": 0.5135135135135135,
+        "completeness": 0.9,
+        "overall": 0.7378378378378377
+      },
+      "passed": true
+    },
+    {
+      "id": 9,
+      "question": "What are the common use cases of transformer models?",
+      "expected_answer": "Transformers are widely used in machine translation, text summarization, question answering, and large language models like GPT and BERT.",
+      "actual_answer": " The common use cases of Transformer models include compelling sequence modeling and transduction tasks such as machine translation, where it allows for modeling dependencies without regard to their distance in input or output sequences. In this work, the authors propose the Transformer model for this purpose, eschewing recurrence and relying entirely on an attention mechanism to draw global dependencies between input and output.",
+      "context_chunks": 10,
+      "context_preview": "single-precision floating-point capacity of each GPU5.\n6.2 Model Variations\nTo evaluate the importance of different components of the Transformer, we varied our base model\nin different ways, measuring...",
+      "scores": {
+        "relevance": 0.8,
+        "context_utilization": 0.8095238095238095,
+        "completeness": 0.7999999999999999,
+        "overall": 0.8031746031746031
+      },
+      "passed": true
+    },
+    {
+      "id": 10,
+      "question": "How does layer normalization help in transformer training?",
+      "expected_answer": "Layer normalization stabilizes and accelerates training by normalizing inputs across features, reducing internal covariate shift.",
+      "actual_answer": " The provided text does not explicitly mention layer normalization, but it is a common technique used in Transformer models for stabilizing the training process. Layer normalization helps by re-centering and re-scaling the activations of each layer independently across its inputs, which can improve the model's stability during training and speed up convergence. This is particularly useful in the Transformer architecture due to its large number of parameters and layers. However, it's essential to note that the original paper does not explicitly mention layer normalization as a key component of their model.",
+      "context_chunks": 10,
+      "context_preview": "Figure 1: The Transformer - model architecture.\nThe Transformer follows this overall architecture using stacked self-attention and point-wise, fully\nconnected layers for both the encoder and decoder, ...",
+      "scores": {
+        "relevance": 0.6,
+        "context_utilization": 0.45454545454545453,
+        "completeness": 0.8999999999999999,
+        "overall": 0.6515151515151515
+      },
+      "passed": false
+    }
+  ]
+}
